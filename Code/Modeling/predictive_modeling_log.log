@@ -1,0 +1,168 @@
+2025-05-04 10:46:04,136 - predictive_modeling - INFO - Loaded source file vw_daily_metrics.csv into daily_metrics
+2025-05-04 10:46:04,141 - predictive_modeling - INFO - Loaded source file vw_platform_comparison.csv into platform_comparison
+2025-05-04 10:46:04,144 - predictive_modeling - INFO - Loaded source file vw_mailchimp_campaigns.csv into mailchimp_campaigns
+2025-05-04 10:46:04,150 - predictive_modeling - INFO - Running predictive modeling for client: Michigan Minds
+2025-05-04 10:46:04,159 - predictive_modeling - ERROR - Error in predictive modeling: 'SocialMediaPredictiveModeling' object has no attribute '_create_features_for_weekly_model'
+2025-05-04 10:46:04,161 - predictive_modeling - ERROR - Traceback (most recent call last):
+  File "c:\users\arthu\documents\capstone_submission_files\code\modeling\predictive_analytics_code_capstone_final_complete.py", line 712, in run_predictive_modeling
+    self.predict_engagement_two_part_model(client, platform)
+  File "c:\users\arthu\documents\capstone_submission_files\code\modeling\predictive_analytics_code_capstone_final_complete.py", line 444, in predict_engagement_two_part_model
+    features_df = self._create_features_for_weekly_model(weekly_engagement)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SocialMediaPredictiveModeling' object has no attribute '_create_features_for_weekly_model'
+
+2025-05-04 10:46:19,850 - predictive_modeling - INFO - Loaded source file vw_daily_metrics.csv into daily_metrics
+2025-05-04 10:46:19,852 - predictive_modeling - INFO - Loaded source file vw_platform_comparison.csv into platform_comparison
+2025-05-04 10:46:19,854 - predictive_modeling - INFO - Loaded source file vw_mailchimp_campaigns.csv into mailchimp_campaigns
+2025-05-04 10:46:19,857 - predictive_modeling - INFO - Running predictive modeling for client: Michigan Minds
+2025-05-04 10:46:19,868 - predictive_modeling - WARNING - Single-class training data for Michigan Minds - Facebook Ads, engagement always 1
+2025-05-04 10:46:19,870 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for Michigan Minds - Facebook Ads: 1 points
+2025-05-04 10:46:19,880 - predictive_modeling - WARNING - Single-class training data for Michigan Minds - Instagram, engagement always 1
+2025-05-04 10:46:19,882 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for Michigan Minds - Instagram: 4 points
+2025-05-04 10:46:19,898 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Michigan Minds
+2025-05-04 10:46:19,904 - predictive_modeling - INFO - Seasonal patterns calculated and saved for Michigan Minds
+2025-05-04 10:46:19,904 - predictive_modeling - INFO - Running predictive modeling for client: APT Foundation
+2025-05-04 10:46:20,010 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for APT Foundation - Facebook Ads: 3 points
+2025-05-04 10:46:20,022 - predictive_modeling - WARNING - Single-class training data for APT Foundation - Website, engagement always 1
+2025-05-04 10:46:25,314 - predictive_modeling - ERROR - Error in predictive modeling: 'GridSearchCV' object has no attribute 'best_estimator'
+2025-05-04 10:46:25,316 - predictive_modeling - ERROR - Traceback (most recent call last):
+  File "c:\users\arthu\documents\capstone_submission_files\code\modeling\predictive_analytics_code_capstone_final_complete.py", line 712, in run_predictive_modeling
+    self.predict_engagement_two_part_model(client, platform)
+  File "c:\users\arthu\documents\capstone_submission_files\code\modeling\predictive_analytics_code_capstone_final_complete.py", line 481, in predict_engagement_two_part_model
+    regressor = self.tune_random_forest(X_train_reg, y_train_reg)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\users\arthu\documents\capstone_submission_files\code\modeling\predictive_analytics_code_capstone_final_complete.py", line 405, in tune_random_forest
+    return grid_search.best_estimator
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GridSearchCV' object has no attribute 'best_estimator'
+
+2025-05-04 10:46:53,590 - predictive_modeling - INFO - Loaded source file vw_daily_metrics.csv into daily_metrics
+2025-05-04 10:46:53,593 - predictive_modeling - INFO - Loaded source file vw_platform_comparison.csv into platform_comparison
+2025-05-04 10:46:53,596 - predictive_modeling - INFO - Loaded source file vw_mailchimp_campaigns.csv into mailchimp_campaigns
+2025-05-04 10:46:53,598 - predictive_modeling - INFO - Running predictive modeling for client: Michigan Minds
+2025-05-04 10:46:53,607 - predictive_modeling - WARNING - Single-class training data for Michigan Minds - Facebook Ads, engagement always 1
+2025-05-04 10:46:53,609 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for Michigan Minds - Facebook Ads: 1 points
+2025-05-04 10:46:53,620 - predictive_modeling - WARNING - Single-class training data for Michigan Minds - Instagram, engagement always 1
+2025-05-04 10:46:53,622 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for Michigan Minds - Instagram: 4 points
+2025-05-04 10:46:53,628 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Michigan Minds
+2025-05-04 10:46:53,633 - predictive_modeling - INFO - Seasonal patterns calculated and saved for Michigan Minds
+2025-05-04 10:46:53,633 - predictive_modeling - INFO - Running predictive modeling for client: APT Foundation
+2025-05-04 10:46:53,737 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for APT Foundation - Facebook Ads: 3 points
+2025-05-04 10:46:53,750 - predictive_modeling - WARNING - Single-class training data for APT Foundation - Website, engagement always 1
+2025-05-04 10:46:55,961 - predictive_modeling - ERROR - Error in predictive modeling: 'GridSearchCV' object has no attribute '_best_estimator'
+2025-05-04 10:46:55,962 - predictive_modeling - ERROR - Traceback (most recent call last):
+  File "c:\users\arthu\documents\capstone_submission_files\code\modeling\predictive_analytics_code_capstone_final_complete.py", line 712, in run_predictive_modeling
+    self.predict_engagement_two_part_model(client, platform)
+  File "c:\users\arthu\documents\capstone_submission_files\code\modeling\predictive_analytics_code_capstone_final_complete.py", line 481, in predict_engagement_two_part_model
+    regressor = self.tune_random_forest(X_train_reg, y_train_reg)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\users\arthu\documents\capstone_submission_files\code\modeling\predictive_analytics_code_capstone_final_complete.py", line 405, in tune_random_forest
+    return grid_search._best_estimator
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GridSearchCV' object has no attribute '_best_estimator'
+
+2025-05-04 10:47:05,272 - predictive_modeling - INFO - Loaded source file vw_daily_metrics.csv into daily_metrics
+2025-05-04 10:47:05,275 - predictive_modeling - INFO - Loaded source file vw_platform_comparison.csv into platform_comparison
+2025-05-04 10:47:05,278 - predictive_modeling - INFO - Loaded source file vw_mailchimp_campaigns.csv into mailchimp_campaigns
+2025-05-04 10:47:05,281 - predictive_modeling - INFO - Running predictive modeling for client: Michigan Minds
+2025-05-04 10:47:05,289 - predictive_modeling - WARNING - Single-class training data for Michigan Minds - Facebook Ads, engagement always 1
+2025-05-04 10:47:05,292 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for Michigan Minds - Facebook Ads: 1 points
+2025-05-04 10:47:05,302 - predictive_modeling - WARNING - Single-class training data for Michigan Minds - Instagram, engagement always 1
+2025-05-04 10:47:05,304 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for Michigan Minds - Instagram: 4 points
+2025-05-04 10:47:05,310 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Michigan Minds
+2025-05-04 10:47:05,316 - predictive_modeling - INFO - Seasonal patterns calculated and saved for Michigan Minds
+2025-05-04 10:47:05,317 - predictive_modeling - INFO - Running predictive modeling for client: APT Foundation
+2025-05-04 10:47:05,427 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for APT Foundation - Facebook Ads: 3 points
+2025-05-04 10:47:05,439 - predictive_modeling - WARNING - Single-class training data for APT Foundation - Website, engagement always 1
+2025-05-04 10:47:07,672 - predictive_modeling - INFO - Two-part weekly model for APT Foundation - Website: Classification accuracy: 1.0000, Regression R²: -0.3407, MAE: 104160.6456
+2025-05-04 10:47:07,731 - predictive_modeling - INFO - Two-part weekly model forecast generated for APT Foundation - Website
+2025-05-04 10:47:07,738 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for APT Foundation
+2025-05-04 10:47:07,745 - predictive_modeling - INFO - Seasonal patterns calculated and saved for APT Foundation
+2025-05-04 10:47:07,746 - predictive_modeling - INFO - Running predictive modeling for client: Care Coalition
+2025-05-04 10:47:07,756 - predictive_modeling - WARNING - Single-class training data for Care Coalition - Facebook Ads, engagement always 1
+2025-05-04 10:47:10,050 - predictive_modeling - INFO - Two-part weekly model for Care Coalition - Facebook Ads: Classification accuracy: 1.0000, Regression R²: 0.0444, MAE: 1623.3939
+2025-05-04 10:47:10,193 - predictive_modeling - INFO - Two-part weekly model forecast generated for Care Coalition - Facebook Ads
+2025-05-04 10:47:10,200 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Care Coalition
+2025-05-04 10:47:10,205 - predictive_modeling - INFO - Seasonal patterns calculated and saved for Care Coalition
+2025-05-04 10:47:10,206 - predictive_modeling - INFO - Running predictive modeling for client: Event: Could it be Psychosis? 
+2025-05-04 10:47:10,215 - predictive_modeling - WARNING - Single-class training data for Event: Could it be Psychosis?  - Facebook Ads, engagement always 1
+2025-05-04 10:47:10,216 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for Event: Could it be Psychosis?  - Facebook Ads: 1 points
+2025-05-04 10:47:10,222 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Event: Could it be Psychosis? 
+2025-05-04 10:47:10,228 - predictive_modeling - INFO - Seasonal patterns calculated and saved for Event: Could it be Psychosis? 
+2025-05-04 10:47:10,229 - predictive_modeling - INFO - Running predictive modeling for client: Calm Nola
+2025-05-04 10:47:12,537 - predictive_modeling - INFO - Two-part weekly model for Calm Nola - Facebook Ads: Classification accuracy: 1.0000, Regression R²: -0.0516, MAE: 2.7912
+2025-05-04 10:47:12,623 - predictive_modeling - INFO - Two-part weekly model forecast generated for Calm Nola - Facebook Ads
+2025-05-04 10:47:12,634 - predictive_modeling - WARNING - Single-class training data for Calm Nola - Website, engagement always 1
+2025-05-04 10:47:14,991 - predictive_modeling - INFO - Two-part weekly model for Calm Nola - Website: Classification accuracy: 1.0000, Regression R²: -2.5509, MAE: 8202.6163
+2025-05-04 10:47:15,130 - predictive_modeling - INFO - Two-part weekly model forecast generated for Calm Nola - Website
+2025-05-04 10:47:15,137 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Calm Nola
+2025-05-04 10:47:15,143 - predictive_modeling - INFO - Seasonal patterns calculated and saved for Calm Nola
+2025-05-04 10:47:15,144 - predictive_modeling - INFO - Running predictive modeling for client: STEP Learning Collaborative
+2025-05-04 10:47:15,154 - predictive_modeling - WARNING - Single-class training data for STEP Learning Collaborative - Facebook Ads, engagement always 1
+2025-05-04 10:47:15,156 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for STEP Learning Collaborative - Facebook Ads: 4 points
+2025-05-04 10:47:15,166 - predictive_modeling - WARNING - Single-class training data for STEP Learning Collaborative - Website, engagement always 1
+2025-05-04 10:47:17,274 - predictive_modeling - INFO - Two-part weekly model for STEP Learning Collaborative - Website: Classification accuracy: 1.0000, Regression R²: -0.1712, MAE: 8044.5421
+2025-05-04 10:47:17,332 - predictive_modeling - INFO - Two-part weekly model forecast generated for STEP Learning Collaborative - Website
+2025-05-04 10:47:17,341 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for STEP Learning Collaborative
+2025-05-04 10:47:17,347 - predictive_modeling - INFO - Seasonal patterns calculated and saved for STEP Learning Collaborative
+2025-05-04 10:47:17,348 - predictive_modeling - INFO - Running predictive modeling for client: NYC TCTTAC
+2025-05-04 10:47:17,361 - predictive_modeling - WARNING - Single-class training data for NYC TCTTAC - Website, engagement always 1
+2025-05-04 10:47:19,749 - predictive_modeling - INFO - Two-part weekly model for NYC TCTTAC - Website: Classification accuracy: 1.0000, Regression R²: -0.1252, MAE: 43655.7276
+2025-05-04 10:47:19,894 - predictive_modeling - INFO - Two-part weekly model forecast generated for NYC TCTTAC - Website
+2025-05-04 10:47:19,901 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for NYC TCTTAC
+2025-05-04 10:47:19,907 - predictive_modeling - INFO - Seasonal patterns calculated and saved for NYC TCTTAC
+2025-05-04 10:47:19,907 - predictive_modeling - INFO - Running predictive modeling for client: Conscious Business Collaborative
+2025-05-04 10:47:19,919 - predictive_modeling - WARNING - Single-class training data for Conscious Business Collaborative - Website, engagement always 1
+2025-05-04 10:47:22,077 - predictive_modeling - INFO - Two-part weekly model for Conscious Business Collaborative - Website: Classification accuracy: 1.0000, Regression R²: -1946.5583, MAE: 59935.3720
+2025-05-04 10:47:22,138 - predictive_modeling - INFO - Two-part weekly model forecast generated for Conscious Business Collaborative - Website
+2025-05-04 10:47:22,146 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Conscious Business Collaborative
+2025-05-04 10:47:22,151 - predictive_modeling - INFO - Seasonal patterns calculated and saved for Conscious Business Collaborative
+2025-05-04 10:47:22,152 - predictive_modeling - INFO - Running predictive modeling for client: Parker Marketing
+2025-05-04 10:47:22,167 - predictive_modeling - WARNING - Single-class training data for Parker Marketing - Website, engagement always 1
+2025-05-04 10:47:24,284 - predictive_modeling - INFO - Two-part weekly model for Parker Marketing - Website: Classification accuracy: 1.0000, Regression R²: -6.2293, MAE: 1812.1896
+2025-05-04 10:47:24,344 - predictive_modeling - INFO - Two-part weekly model forecast generated for Parker Marketing - Website
+2025-05-04 10:47:24,351 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Parker Marketing
+2025-05-04 10:47:24,357 - predictive_modeling - INFO - Seasonal patterns calculated and saved for Parker Marketing
+2025-05-04 10:47:24,357 - predictive_modeling - INFO - Running predictive modeling for client: Catalyst Personal Training Oceanside
+2025-05-04 10:47:24,366 - predictive_modeling - WARNING - Single-class training data for Catalyst Personal Training Oceanside - Website, engagement always 1
+2025-05-04 10:47:24,368 - predictive_modeling - WARNING - Insufficient non-zero weekly samples for Catalyst Personal Training Oceanside - Website: 3 points
+2025-05-04 10:47:24,375 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Catalyst Personal Training Oceanside
+2025-05-04 10:47:24,380 - predictive_modeling - INFO - Seasonal patterns calculated and saved for Catalyst Personal Training Oceanside
+2025-05-04 10:47:24,381 - predictive_modeling - INFO - Running predictive modeling for client: The Barbell Saves Project
+2025-05-04 10:47:24,391 - predictive_modeling - WARNING - Single-class training data for The Barbell Saves Project - Facebook Pages, engagement always 1
+2025-05-04 10:47:26,686 - predictive_modeling - INFO - Two-part weekly model for The Barbell Saves Project - Facebook Pages: Classification accuracy: 1.0000, Regression R²: -1.6819, MAE: 137.4183
+2025-05-04 10:47:26,829 - predictive_modeling - INFO - Two-part weekly model forecast generated for The Barbell Saves Project - Facebook Pages
+2025-05-04 10:47:26,837 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for The Barbell Saves Project
+2025-05-04 10:47:26,844 - predictive_modeling - INFO - Seasonal patterns calculated and saved for The Barbell Saves Project
+2025-05-04 10:47:26,850 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Michigan Minds
+2025-05-04 10:47:26,853 - predictive_modeling - INFO - Generated 2 cross-platform opportunities for Michigan Minds
+2025-05-04 10:47:26,859 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for APT Foundation
+2025-05-04 10:47:26,863 - predictive_modeling - INFO - Generated 2 cross-platform opportunities for APT Foundation
+2025-05-04 10:47:26,869 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Care Coalition
+2025-05-04 10:47:26,870 - predictive_modeling - INFO - Only one platform found for Care Coalition, cannot generate cross-platform opportunities
+2025-05-04 10:47:26,873 - predictive_modeling - INFO - Generated 0 cross-platform opportunities for Care Coalition
+2025-05-04 10:47:26,879 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Event: Could it be Psychosis? 
+2025-05-04 10:47:26,881 - predictive_modeling - INFO - Only one platform found for Event: Could it be Psychosis? , cannot generate cross-platform opportunities
+2025-05-04 10:47:26,882 - predictive_modeling - INFO - Generated 0 cross-platform opportunities for Event: Could it be Psychosis? 
+2025-05-04 10:47:26,888 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Calm Nola
+2025-05-04 10:47:26,892 - predictive_modeling - INFO - Generated 2 cross-platform opportunities for Calm Nola
+2025-05-04 10:47:26,899 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for STEP Learning Collaborative
+2025-05-04 10:47:26,902 - predictive_modeling - INFO - Generated 2 cross-platform opportunities for STEP Learning Collaborative
+2025-05-04 10:47:26,908 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for NYC TCTTAC
+2025-05-04 10:47:26,911 - predictive_modeling - INFO - Only one platform found for NYC TCTTAC, cannot generate cross-platform opportunities
+2025-05-04 10:47:26,914 - predictive_modeling - INFO - Generated 0 cross-platform opportunities for NYC TCTTAC
+2025-05-04 10:47:26,920 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Conscious Business Collaborative
+2025-05-04 10:47:26,922 - predictive_modeling - INFO - Only one platform found for Conscious Business Collaborative, cannot generate cross-platform opportunities
+2025-05-04 10:47:26,924 - predictive_modeling - INFO - Generated 0 cross-platform opportunities for Conscious Business Collaborative
+2025-05-04 10:47:26,930 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Parker Marketing
+2025-05-04 10:47:26,932 - predictive_modeling - INFO - Only one platform found for Parker Marketing, cannot generate cross-platform opportunities
+2025-05-04 10:47:26,935 - predictive_modeling - INFO - Generated 0 cross-platform opportunities for Parker Marketing
+2025-05-04 10:47:26,941 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for Catalyst Personal Training Oceanside
+2025-05-04 10:47:26,942 - predictive_modeling - INFO - Only one platform found for Catalyst Personal Training Oceanside, cannot generate cross-platform opportunities
+2025-05-04 10:47:26,944 - predictive_modeling - INFO - Generated 0 cross-platform opportunities for Catalyst Personal Training Oceanside
+2025-05-04 10:47:26,950 - predictive_modeling - INFO - Cross-platform correlation matrix calculated for The Barbell Saves Project
+2025-05-04 10:47:26,952 - predictive_modeling - INFO - Only one platform found for The Barbell Saves Project, cannot generate cross-platform opportunities
+2025-05-04 10:47:26,953 - predictive_modeling - INFO - Generated 0 cross-platform opportunities for The Barbell Saves Project
+2025-05-04 10:47:27,021 - predictive_modeling - INFO - Summary metrics calculated and saved successfully.
+2025-05-04 10:47:27,024 - predictive_modeling - INFO - Saved model diagnostics log to results\forecasts\model_diagnostics_log.csv
+2025-05-04 10:47:27,025 - predictive_modeling - INFO - Predictive modeling completed successfully

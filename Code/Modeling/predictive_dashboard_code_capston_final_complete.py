@@ -5,17 +5,23 @@ Author: Arthur
 Version: 4.0
 """
 #import libraries
+
+#data analysis
 import pandas as pd
-import dash
-from dash import dcc, html, Input, Output, State
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
+import glob #using for pattern matching
+
+import re
+#for web application
+import dash
+from dash import dcc, html, Input, Output, State
+# file systems etc
 from pathlib import Path
 import os
-import glob
-import re
 import socket
+#pdf generation #TODO - review this
 from xhtml2pdf import pisa
 import io
 
@@ -27,19 +33,20 @@ app.title = 'PMM Social Media Dashboard'
 
 #note to add a couple more helper functions to optimize code
 
-#data loading class
+#Create data loader class
 class DataLoader:
     def __init__(self, data_dir, model_dir):
+        #store path to data and model dir
         self.data_dir = Path(data_dir)
         self.model_dir = Path(model_dir)
+        #create empty dict and vars
         self.daily_metrics = None
         self.forecasts = {}
-        self.correlations = {}
         self.insights = {}
         self.seasonal_patterns = {}
         self.cross_platform_opportunities = {}
         
-        # Load all data
+#load all data from dir
         self.load_all_data()
    
     
@@ -50,7 +57,7 @@ class DataLoader:
             self.daily_metrics = pd.read_csv(self.data_dir / 'vw_daily_metrics.csv')
             self.daily_metrics['full_date'] = pd.to_datetime(self.daily_metrics['full_date'])
             
-            #load the seasonal patterns
+            #load the seasonal patterns from model
             seasonal_pattern_files = glob.glob(str(self.model_dir / 'forecasts' / 'seasonal_patterns_*.csv'))
             for file_path in seasonal_pattern_files:
                 
@@ -60,7 +67,7 @@ class DataLoader:
                     key = match.group(1)
                     self.seasonal_patterns[key] = pd.read_csv(file_path)
             
-            #load forecast
+            #load forecast from model
             forecast_files = glob.glob(str(self.model_dir / 'forecasts' / 'forecast_*.csv'))
             for file_path in forecast_files:
                 
@@ -84,27 +91,19 @@ class DataLoader:
                 if match:
                     key = match.group(1)
                     self.cross_platform_opportunities[key] = pd.read_csv(file_path)                                   
-         
-            #load correlations
-            correlation_files = glob.glob(str(self.model_dir / 'forecasts' / 'correlation_*.csv'))
-            for file_path in correlation_files:
-                file_name = os.path.basename(file_path)
-                match = re.search(r'correlation_(.+)\.csv', file_name)
-                if match:
-                    key = match.group(1)
-                    self.correlations[key] = pd.read_csv(file_path, index_col=0)            
+        
             return True
             
         except Exception as e:
             print(f"Error loading data: {str(e)}")
             return False        
 
-    #get list of clients from vw_daily_metrics file
+    #get list of clients from vw_daily_metrics file and sort
     def get_clients(self):
         if self.daily_metrics is not None:
             return sorted(self.daily_metrics['Client_Name'].unique())
         return []
-    #ggt list of platforms for each client from vw_daily_metrics file
+    #ggt list of platforms for each client from vw_daily_metrics file and sort
     def get_client_platforms(self, client):
         if self.daily_metrics is not None:
             client_data = self.daily_metrics[self.daily_metrics['Client_Name'] == client]
@@ -112,6 +111,7 @@ class DataLoader:
                 return sorted(client_data['platform_name'].unique())
         return []
     
+    #get the forecast data ffor specific client and platform
     def get_forecast(self, client, platform, metric='total_engagement'):
         client_key = client.replace(" ", "_").lower()
         platform_key = platform.replace(" ", "_").lower()
@@ -122,12 +122,6 @@ class DataLoader:
         for k in self.forecasts.keys():
             if k.startswith(f"{client_key}_{platform_key}"):
                 return self.forecasts[k]
-        return None
-        
-    def get_correlation(self, client):
-        client_key = client.replace(" ", "_").lower()
-        if client_key in self.correlations:
-            return self.correlations[client_key]
         return None
     
     #filter metrics, exclude frequency and other non-summable metrics
@@ -253,7 +247,7 @@ data_loader = DataLoader(data_dir, model_dir)
 clients = data_loader.get_clients()
 
     
-#Define app layout
+#Design the dashboard layout
 app.layout = html.Div([
 #Header
     html.Div([
@@ -299,7 +293,7 @@ app.layout = html.Div([
     ], className="section"),
 
 
-    #Smart Summary (Hero Section)
+    #Smart Summary section
     html.Div([
         html.H2([html.I(className="fas fa-brain me-2"), "Smart Summary"]),
         html.Div(id="smart-summary-cards", className="cards-container-smart")
@@ -325,6 +319,8 @@ app.layout = html.Div([
             html.Div(id="timing-content", className="tab-content")])])])
 
 #Callbacks
+
+#platform dropdown callback
 @app.callback(
     Output('platform-dropdown', 'options'),
     Output('platform-dropdown', 'value'),
@@ -337,6 +333,7 @@ def update_platform_options(client):
     options = [{'label': platform, 'value': platform} for platform in platforms]
     return options, platforms[0] if platforms else None
 
+#smart summary callback
 @app.callback(
     Output('smart-summary-cards', 'children'),
     Input('client-dropdown', 'value')
@@ -361,6 +358,7 @@ def update_smart_summary(client):
     
     return cards
 
+#cross platform oppoortunity call back
 @app.callback(
     Output('cross-platform-content', 'children'),
     Input('client-dropdown', 'value')
@@ -423,7 +421,7 @@ def update_cross_platform_content(client):
         ], className="help-container")
     ])
 
-
+#forecast callback
 @app.callback(
     Output('platform-performance-content', 'children'),
     Input('client-dropdown', 'value'),
@@ -557,6 +555,7 @@ def update_platform_performance(client, platform):
         ], className="chart-insight")
     ])
 
+#key metrics callback
 @app.callback(
     Output('key-metrics-cards', 'children'),
     Input('client-dropdown', 'value'),
@@ -673,7 +672,7 @@ def update_key_metrics(client, platform):
         }
     )
 
-
+#historic insights callback
 @app.callback(
     Output('historical-performance-content', 'children'),
     Input('client-dropdown', 'value'),
@@ -684,7 +683,7 @@ def update_historical_performance(client, platform):
         return html.Div("Please select a client and platform")
     
     historical_data = data_loader.get_historical_data(client, platform)
-    
+    #TODO: might need to improve messaging
     if historical_data is None:
         return html.Div("No historical data available yet!")
   
@@ -708,13 +707,11 @@ def update_historical_performance(client, platform):
     #filter data for current and previous months - future iteration will do quarter-over-quarter reviews
     current_month_data = historical_data[
         (historical_data['year'] == most_recent_year) & 
-        (historical_data['month'] == most_recent_month)
-    ].copy()
+        (historical_data['month'] == most_recent_month)].copy()
     
     previous_month_data = historical_data[
         (historical_data['year'] == previous_year) & 
-        (historical_data['month'] == previous_month)
-    ].copy()
+        (historical_data['month'] == previous_month)].copy()
     
     #check if we have enough data
     if current_month_data.empty:
@@ -727,7 +724,7 @@ def update_historical_performance(client, platform):
     fig.add_trace(go.Scatter(
         x=historical_data['full_date'],
         y=historical_data['value'],
-        mode='lines',
+            mode='lines',
         line=dict(color='#d1d1d1', width=1),
         name="All Historical Data"
     ))
@@ -738,6 +735,7 @@ def update_historical_performance(client, platform):
         y=current_month_data['value'],
         mode='lines+markers',
         line=dict(color='#3498db', width=3),
+        
         name=f"{datetime(most_recent_year, most_recent_month, 1).strftime('%B %Y')}"
     ))
     
@@ -752,7 +750,7 @@ def update_historical_performance(client, platform):
         aligned_prev_month = aligned_prev_month.sort_values('day')
         
         #Limit to same number of days for fair comparison
-        min_days = min(len(current_month_data), len(aligned_prev_month))
+        min_days = min(len(current_month_data), len(aligned_prev_month)  )
         current_month_data = current_month_data.head(min_days)
         aligned_prev_month = aligned_prev_month.head(min_days)
         
@@ -764,6 +762,7 @@ def update_historical_performance(client, platform):
             line=dict(color='#e74c3c', width=3, dash='dash'),
             name=f"{datetime(previous_year, previous_month, 1).strftime('%B %Y')}",
             hovertemplate='Day %{customdata}<br>Value: %{y}<extra></extra>',
+            
             customdata=aligned_prev_month['day']))
         
         #calculate the month-over-month change- future dev to look at previous quarter.
@@ -774,9 +773,12 @@ def update_historical_performance(client, platform):
             percent_change = ((current_total - previous_total) / previous_total)*100
             change_text = f"Change: {percent_change:.1f}% from previous month"
             change_color = "#4caf50" if percent_change > 0 else "#f44336"
+        
+        
         else:
             change_text = "No previous month data for comparison"
             change_color = "#7f8c8d"
+            
         if current_total == previous_total:
             change_text = "No change from previous month"
             change_color = "#7f8c8d"
