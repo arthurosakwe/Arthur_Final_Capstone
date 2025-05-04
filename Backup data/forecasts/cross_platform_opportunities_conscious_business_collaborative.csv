@@ -1,0 +1,4 @@
+target,predictors,r2,action
+Facebook Pages,"Website, Instagram",0.0031039519812982135,Monitor relationship
+Instagram,"Facebook Pages, Website",0.0015677428428005603,Monitor relationship
+Website,"Facebook Pages, Instagram",0.0031039519812982135,Monitor relationship

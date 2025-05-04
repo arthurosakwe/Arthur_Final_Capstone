@@ -1,0 +1,4 @@
+target,predictors,r2,action
+Facebook Ads,"LinkedIn, Website",0.032677882430494146,Monitor relationship
+LinkedIn,"Facebook Ads, Website",0.032677882430494146,Monitor relationship
+Website,"LinkedIn, Facebook Ads",0.00024202545978924947,Monitor relationship
