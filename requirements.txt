@@ -1,0 +1,12 @@
+dash
+dateutil
+facebook_business
+google-api-python-client
+google-auth-oauthlib
+joblib
+numpy
+pandas
+plotly
+requests
+scikit-learn
+xhtml2pdf
