@@ -1,0 +1,7 @@
+platform_id,platform_name,data_source
+1,Website,website_daily_analytics_all.csv
+2,Facebook Pages,facebook_all_pages_daily_summary.xlsx
+3,Facebook Ads,fb_ad_metrics.csv
+4,Mailchimp,mailchimp_campaign_metrics.csv
+5,LinkedIn,linkedin_daily_all_pages.csv
+6,Instagram,instagram_all_accounts_daily_summary.xlsx

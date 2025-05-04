@@ -1,0 +1,62 @@
+metric_id,metric_name,metric_category,is_calculated
+1,Reach,Reach,False
+2,Impressions,Reach,False
+3,Frequency,Reach,False
+4,CPM,Cost,False
+5,Clicks,Engagement,False
+6,Amount Spent,Cost,False
+7,Link Clicks,Engagement,False
+8,Cost_like,Cost,False
+9,Cost_link_click,Cost,False
+10,Cost_onsite_conversion.messaging_welcome_message_view,Cost,False
+11,Cost_page_engagement,Cost,False
+12,Cost_post_engagement,Cost,False
+13,Cost_rsvp,Cost,False
+14,Cost_video_view,Cost,False
+15,Action_comment,Action,False
+16,Action_like,Action,False
+17,Action_link_click,Action,False
+18,Action_onsite_conversion.messaging_welcome_message_view,Action,False
+19,Action_page_engagement,Action,False
+20,Action_post,Action,False
+21,Action_post_engagement,Action,False
+22,Action_post_reaction,Action,False
+23,Action_rsvp,Action,False
+24,Action_video_view,Action,False
+25,Emails Sent,Reach,False
+26,Open Rate,Engagement,True
+27,Click Rate,Engagement,True
+28,Total Clicks,Engagement,False
+29,Unique Clicks,Engagement,False
+30,Unique Subscriber Clicks,Engagement,False
+31,Views,Engagement,False
+32,Active Users,Audience,False
+33,Engaged Sessions,Engagement,False
+34,New Users,Audience,False
+35,Event Count,Engagement,False
+36,Sessions,Engagement,False
+37,Engagement Rate (%),Engagement,True
+38,User Engagement Duration,Engagement,True
+39,Top Page URL,Other,False
+40,Top State,Other,False
+41,New Page Likes,Audience,False
+42,Page Impressions,Reach,False
+43,Interactions,Engagement,False
+44,Likes,Engagement,False
+45,Page Views,Engagement,False
+46,Top Post Engagement,Other,False
+47,Top Post URL,Other,False
+48,Post Likes (from feed),Engagement,False
+49,Comments,Engagement,False
+50,Shares,Engagement,False
+51,Total Posts,Content,False
+52,Top Post Message,Other,False
+53,New Follows,Audience,False
+54,Unfollows,Audience,False
+55,Net Follower Change,Audience,False
+56,Followers,Audience,False
+57,Saved,Engagement,False
+58,Media Reach,Reach,False
+59,Total Engagement,Engagement,False
+60,Posts Count,Content,False
+61,Engagement Rate,Engagement,True
